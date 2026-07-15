@@ -1,4 +1,6 @@
+import { ChefSection } from "@/components/chef-section";
 import { EditorialBand } from "@/components/editorial-band";
+import { ExpectationsSection } from "@/components/expectations-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { FaqSection } from "@/components/faq-section";
 import { Footer } from "@/components/footer";
@@ -9,7 +11,6 @@ import { Navbar } from "@/components/navbar";
 import { PracticalInfoSection } from "@/components/practical-info-section";
 import { ProducersSection } from "@/components/producers-section";
 import { ReservationSection } from "@/components/reservation-section";
-import { StorySection } from "@/components/story-section";
 
 export default function Home() {
   return (
@@ -19,9 +20,10 @@ export default function Home() {
         <Hero />
         <ExperienceSection />
         <MenusSection />
-        <StorySection />
+        <ChefSection />
         <EditorialBand />
         <ProducersSection />
+        <ExpectationsSection />
         <GallerySection />
         <ReservationSection />
         <FaqSection />

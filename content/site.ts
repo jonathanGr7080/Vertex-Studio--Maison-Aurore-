@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Maison Aurore",
-  signature: "La gastronomie au rythme des saisons.",
+  signature: "La gastronomie au rythme des saisons, au cœur de Bruges.",
   locationLabel: "Restaurant gastronomique · Bruges",
   demoNotice:
     "Concept de démonstration conçu par Vertex Studio. Maison Aurore n'est pas un établissement réel.",
@@ -9,7 +9,7 @@ export const siteConfig = {
 export const navLinks = [
   { label: "Expérience", href: "#experience" },
   { label: "Menus", href: "#menus" },
-  { label: "Histoire", href: "#histoire" },
+  { label: "Le chef", href: "#chef" },
   { label: "Galerie", href: "#galerie" },
   { label: "Contact", href: "#contact" },
 ] as const;

@@ -56,7 +56,7 @@ export const siteMeta = {
   locale: "fr_BE",
   title: "Maison Aurore — Concept de démonstration · Vertex Studio",
   description:
-    "Maison Aurore est un concept fictif de restaurant gastronomique à Bruges, imaginé par Vertex Studio pour son portfolio. La gastronomie au rythme des saisons.",
+    "Maison Aurore, concept fictif de restaurant gastronomique à Bruges imaginé par Vertex Studio : une cuisine de saison, un terroir belge et une hospitalité calme. Menus, chef et réservation sont des contenus de démonstration.",
   ogDescription:
-    "Projet de portfolio réalisé par Vertex Studio : identité et site pour un restaurant gastronomique fictif à Bruges.",
+    "Cas d'étude Vertex Studio : storytelling, menus de saison, section chef et parcours de réservation pour un restaurant gastronomique fictif à Bruges.",
 } as const;

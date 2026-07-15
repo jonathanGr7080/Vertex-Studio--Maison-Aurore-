@@ -47,9 +47,11 @@ push et pull request. Aucun secret n'est requis.
 
 - `app/` — layout (métadonnées, JSON-LD, polices), page d'accueil, tokens CSS,
   favicon, `robots.ts`, `sitemap.ts`
-- `components/` — navigation, hero, sections (expérience, menus, histoire,
-  producteurs, galerie, réservation démo, FAQ, infos pratiques), footer
-- `content/` — contenus centralisés et typés (menus, producteurs, FAQ, infos site)
+- `components/` — navigation, hero, sections (expérience, menus, chef,
+  producteurs, en salle, galerie, réservation démo, FAQ, infos pratiques),
+  footer, primitives réutilisables (`Reveal`, `ButtonLink`, `SectionHeading`)
+- `content/` — contenus centralisés et typés (chef, menus, producteurs,
+  expérience en salle, FAQ, infos site)
 - `lib/` — configuration du site dérivée de l'environnement (`site-config.ts`)
 - `public/images/` — assets générés pour la démonstration (hero, image Open Graph)
 

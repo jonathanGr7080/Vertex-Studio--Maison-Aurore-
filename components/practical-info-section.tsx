@@ -11,7 +11,7 @@ export function PracticalInfoSection() {
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Reveal>
-              <SectionHeading index="08" eyebrow="Informations pratiques" title="Nous trouver" tone="dark" />
+              <SectionHeading index="09" eyebrow="Informations pratiques" title="Nous trouver" tone="dark" />
             </Reveal>
 
             <Reveal as="dl" delayMs={80} className="mt-11 grid gap-9">

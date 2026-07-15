@@ -4,8 +4,10 @@ export type Producer = {
   region: string;
   role: string;
   description: string;
-  /** Ce que ce partenaire apporte concrètement à la cuisine de saison. */
-  link: string;
+  /** Ce que ce partenaire apporte concrètement à la cuisine. */
+  contribution: string;
+  /** Pourquoi cette collaboration correspond à la philosophie de la maison. */
+  philosophy: string;
 };
 
 export const producersIntro =
@@ -19,7 +21,10 @@ export const producers: Producer[] = [
     role: "Maraîchage de saison",
     description:
       "Légumes et herbes cultivés en plein champ sur les polders, cueillis à l'aube et livrés le matin même.",
-    link: "Détermine le socle végétal du menu Aurore et l'intégralité du menu Végétal.",
+    contribution:
+      "Détermine le socle végétal du Menu Signature et l'intégralité du Menu Végétal.",
+    philosophy:
+      "Une agriculture qui suit le calendrier plutôt que la demande : elle impose la saison à la carte, exactement comme la maison le souhaite.",
   },
   {
     id: "pecheur",
@@ -28,7 +33,9 @@ export const producers: Producer[] = [
     role: "Petite pêche côtière",
     description:
       "Poissons et coquillages de la pêche du jour, choisis au débarquement selon l'arrivage — jamais l'inverse.",
-    link: "Fixe le poisson du service : ce qui n'est pas débarqué n'est pas à la carte.",
+    contribution: "Fixe le poisson du service : ce qui n'est pas débarqué n'est pas à la carte.",
+    philosophy:
+      "La pêche du jour interdit toute promesse hors-saison ; elle garde la cuisine honnête et ancrée sur la côte.",
   },
   {
     id: "fromager",
@@ -37,7 +44,9 @@ export const producers: Producer[] = [
     role: "Fromagerie fermière",
     description:
       "Fromages au lait cru affinés en cave, sélectionnés pour leur caractère plutôt que pour leur notoriété.",
-    link: "Compose le chariot d'avant-dessert, renouvelé au rythme des affinages.",
+    contribution: "Compose le service de fromages, renouvelé au rythme des affinages.",
+    philosophy:
+      "Choisir le caractère plutôt que le nom : la même exigence discrète que la maison applique à chaque assiette.",
   },
 ];
 

@@ -60,12 +60,25 @@ export function ProducersSection() {
                   <p className="mt-5 max-w-[52ch] leading-relaxed text-nuit/70">
                     {producer.description}
                   </p>
-                  <p className="mt-5 flex max-w-[52ch] gap-3 border-t border-nuit/15 pt-5 text-sm leading-relaxed text-nuit/75">
-                    <span className="mt-px shrink-0 text-[12px] uppercase tracking-[0.16em] text-nuit/50">
-                      En cuisine
-                    </span>
-                    <span>{producer.link}</span>
-                  </p>
+
+                  <dl className="mt-6 grid gap-4 border-t border-nuit/15 pt-5">
+                    <div className="flex gap-3">
+                      <dt className="mt-px w-24 shrink-0 text-[12px] uppercase tracking-[0.16em] text-nuit/50">
+                        En cuisine
+                      </dt>
+                      <dd className="max-w-[46ch] text-sm leading-relaxed text-nuit/75">
+                        {producer.contribution}
+                      </dd>
+                    </div>
+                    <div className="flex gap-3">
+                      <dt className="mt-px w-24 shrink-0 text-[12px] uppercase tracking-[0.16em] text-nuit/50">
+                        Pourquoi eux
+                      </dt>
+                      <dd className="max-w-[46ch] text-sm leading-relaxed text-nuit/75">
+                        {producer.philosophy}
+                      </dd>
+                    </div>
+                  </dl>
                 </div>
               </Reveal>
             );

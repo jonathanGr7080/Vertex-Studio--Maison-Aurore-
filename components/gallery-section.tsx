@@ -24,7 +24,7 @@ export function GallerySection() {
     <section id="galerie" className="bg-nuit px-5 py-24 text-ivoire sm:px-8 sm:py-36">
       <div className="mx-auto max-w-[1200px]">
         <Reveal className="max-w-2xl">
-          <SectionHeading index="05" eyebrow="Galerie" title="Matières, gestes, lumière" tone="dark" />
+          <SectionHeading index="06" eyebrow="Galerie" title="Matières, gestes, lumière" tone="dark" />
           <p className="mt-9 max-w-[46ch] text-lg leading-relaxed text-ivoire/75">
             Un carnet d&rsquo;ambiances plutôt qu&rsquo;un catalogue : la lumière d&rsquo;une salle
             qui s&rsquo;éveille, les matières et les gestes qui font la maison.

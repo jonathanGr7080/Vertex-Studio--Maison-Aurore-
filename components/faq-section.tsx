@@ -9,7 +9,7 @@ export function FaqSection() {
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Reveal>
-              <SectionHeading index="07" eyebrow="Questions fréquentes" title="Avant votre venue" />
+              <SectionHeading index="08" eyebrow="Questions fréquentes" title="Avant votre venue" />
             </Reveal>
           </div>
 
