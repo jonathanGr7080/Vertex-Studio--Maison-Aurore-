@@ -1,12 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { navLinks } from "@/content/site";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLElement>(null);
+
+  const closeMenu = useCallback(() => setOpen(false), []);
+
+  // Ferme le menu et rend le focus au bouton déclencheur (Échap ou bouton).
+  const closeAndRestoreFocus = useCallback(() => {
+    setOpen(false);
+    triggerRef.current?.focus();
+  }, []);
+
+  // En-tête : transparent en haut, opaque après un léger défilement.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
     onScroll();
@@ -14,18 +26,62 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Referme le menu si l'on repasse en disposition desktop (≥ lg).
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1024px)");
+    const onChange = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(false);
+    };
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  // Piège de focus + Échap + verrou de défilement, actifs uniquement à l'ouverture.
   useEffect(() => {
     if (!open) return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+    const menu = menuRef.current;
+    if (!menu) return;
+
+    const getFocusable = () =>
+      Array.from(
+        menu.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'),
+      );
+
+    // Déplace le focus dans le menu à l'ouverture.
+    getFocusable()[0]?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeAndRestoreFocus();
+        return;
+      }
+      if (event.key !== "Tab") return;
+
+      const items = getFocusable();
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (event.shiftKey) {
+        if (active === first || !menu.contains(active)) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (active === last || !menu.contains(active)) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
+    document.addEventListener("keydown", onKeyDown);
     document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKey);
     return () => {
+      document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
     };
-  }, [open]);
+  }, [open, closeAndRestoreFocus]);
 
   return (
     <header
@@ -35,7 +91,7 @@ export function Navbar() {
     >
       <a
         href="#contenu"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ivoire focus:px-4 focus:py-2 focus:text-sm focus:text-nuit"
+        className="sr-only focus-visible:not-sr-only focus-visible:absolute focus-visible:left-4 focus-visible:top-4 focus-visible:z-50 focus-visible:bg-ivoire focus-visible:px-4 focus-visible:py-2 focus-visible:text-sm focus-visible:text-nuit"
       >
         Aller au contenu
       </a>
@@ -69,11 +125,12 @@ export function Navbar() {
           </a>
 
           <button
+            ref={triggerRef}
             type="button"
             aria-expanded={open}
             aria-controls="menu-mobile"
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => (open ? closeAndRestoreFocus() : setOpen(true))}
             className="flex h-11 w-11 items-center justify-center text-ivoire lg:hidden"
           >
             {open ? (
@@ -90,12 +147,13 @@ export function Navbar() {
       </div>
 
       <div
-        id="menu-mobile"
         className={`grid transition-[grid-template-rows] duration-300 ease-out lg:hidden ${
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
         <nav
+          ref={menuRef}
+          id="menu-mobile"
           aria-label="Navigation mobile"
           className={`overflow-hidden bg-nuit ${open ? "" : "invisible"}`}
         >
@@ -104,7 +162,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                   className="flex min-h-12 items-center border-b border-ivoire/10 font-display text-xl text-ivoire/90 hover:text-laiton"
                 >
                   {link.label}
@@ -114,7 +172,7 @@ export function Navbar() {
             <li>
               <a
                 href="#reservation"
-                onClick={() => setOpen(false)}
+                onClick={closeMenu}
                 className="mt-5 mb-2 flex min-h-12 items-center justify-center bg-laiton px-5 text-sm font-medium text-nuit"
               >
                 Réserver une table
