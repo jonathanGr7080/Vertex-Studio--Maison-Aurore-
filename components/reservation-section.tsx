@@ -1,13 +1,15 @@
 "use client";
 
 import { useId, useState, type FormEvent } from "react";
+import { buttonClasses } from "@/components/button-link";
 import { SectionHeading } from "@/components/section-heading";
 
 const partySizes = [1, 2, 3, 4, 5, 6, 7, 8];
 const timeSlots = ["12h00", "12h30", "13h00", "19h00", "19h30", "20h00", "20h30"];
 
 const fieldClass =
-  "mt-2 h-12 w-full border border-nuit/25 bg-white px-4 text-nuit focus-visible:border-laiton-fonce";
+  "mt-2 h-12 w-full border border-nuit/25 bg-white px-4 text-nuit " +
+  "transition-colors duration-[var(--dur-micro)] hover:border-nuit/40 focus-visible:border-laiton-fonce";
 
 export function ReservationSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -46,7 +48,7 @@ export function ReservationSection() {
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="mt-7 flex min-h-11 items-center border border-nuit/30 px-6 text-sm font-medium transition-colors duration-200 hover:border-laiton-fonce hover:text-laiton-fonce"
+                  className="mt-7 inline-flex min-h-11 items-center border border-nuit/30 px-6 text-sm font-medium transition duration-[var(--dur-micro)] ease-[var(--ease-standard)] hover:border-laiton-fonce hover:text-laiton-fonce active:translate-y-px"
                 >
                   Revenir au formulaire
                 </button>
@@ -104,10 +106,7 @@ export function ReservationSection() {
                 </div>
 
                 <div className="sm:col-span-2">
-                  <button
-                    type="submit"
-                    className="flex min-h-12 w-full items-center justify-center bg-laiton px-8 text-sm font-medium tracking-[0.03em] text-nuit transition-colors duration-200 hover:bg-pierre sm:w-auto"
-                  >
+                  <button type="submit" className={buttonClasses("primary", "w-full sm:w-auto")}>
                     Simuler la demande
                   </button>
                 </div>

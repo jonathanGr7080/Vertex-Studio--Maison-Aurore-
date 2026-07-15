@@ -1,3 +1,4 @@
+import { EditorialBand } from "@/components/editorial-band";
 import { ExperienceSection } from "@/components/experience-section";
 import { FaqSection } from "@/components/faq-section";
 import { Footer } from "@/components/footer";
@@ -19,6 +20,7 @@ export default function Home() {
         <ExperienceSection />
         <MenusSection />
         <StorySection />
+        <EditorialBand />
         <ProducersSection />
         <GallerySection />
         <ReservationSection />

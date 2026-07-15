@@ -6,7 +6,8 @@ type ImagePlaceholderProps = {
 };
 
 /**
- * Emplacement d'image explicite, à remplacer au Sprint 2 par <Image> de next/image.
+ * Emplacement de photographie explicite (portraits, gestes en cuisine) : aucune
+ * photo de personne réelle n'est inventée tant qu'aucun asset validé n'existe.
  * Volontairement sombre et texturé pour tenir visuellement sans la photo finale.
  */
 export function ImagePlaceholder({
