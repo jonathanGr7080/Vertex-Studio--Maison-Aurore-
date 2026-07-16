@@ -41,7 +41,7 @@ function isRealPublicUrl(value: string): boolean {
 }
 
 /** Vrai uniquement pour un déploiement de production avec URL publique réelle. */
-export const isProductionDeployment =
+const isProductionDeployment =
   process.env.NODE_ENV === "production" && isRealPublicUrl(siteUrl);
 
 /** Autoriser l'indexation seulement sur un déploiement de production réel. */
