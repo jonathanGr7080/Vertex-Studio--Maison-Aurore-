@@ -1,4 +1,6 @@
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import Image from "next/image";
+import fenetreMatin from "@/public/images/gallery/fenetre-matin.webp";
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { practicalInfo } from "@/content/site";
 
@@ -8,9 +10,11 @@ export function PracticalInfoSection() {
       <div className="mx-auto max-w-[1200px]">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionHeading index="08" eyebrow="Informations pratiques" title="Nous trouver" tone="dark" />
+            <Reveal>
+              <SectionHeading index="09" eyebrow="Informations pratiques" title="Nous trouver" tone="dark" />
+            </Reveal>
 
-            <dl className="mt-11 grid gap-9">
+            <Reveal as="dl" delayMs={80} className="mt-11 grid gap-9">
               <div className="grid gap-2">
                 <dt className="text-[12px] uppercase tracking-[0.2em] text-ivoire/60">Adresse</dt>
                 <dd className="text-lg leading-relaxed">
@@ -47,22 +51,31 @@ export function PracticalInfoSection() {
 
               <div className="grid gap-2">
                 <dt className="text-[12px] uppercase tracking-[0.2em] text-ivoire/60">
-                  Accès & stationnement
+                  Accès &amp; stationnement
                 </dt>
                 <dd className="max-w-[48ch] leading-relaxed text-ivoire/75">
                   {practicalInfo.access}
                 </dd>
               </div>
-            </dl>
+            </Reveal>
           </div>
 
-          <div className="lg:col-span-6 lg:col-start-7">
-            {/* Pas de carte Google pour une adresse fictive — un plan illustré viendra au Sprint 2. */}
-            <ImagePlaceholder
-              label="Plan illustré du quartier (concept)"
-              aspect="aspect-[4/3] lg:aspect-[4/5]"
-            />
-          </div>
+          <Reveal delayMs={120} className="lg:col-span-6 lg:col-start-7">
+            {/* Visuel d'ambiance (abstrait). Un plan illustré du quartier viendra plus tard. */}
+            <div className="relative aspect-[4/3] overflow-hidden lg:aspect-[4/5]">
+              <Image
+                src={fenetreMatin}
+                alt=""
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 48vw, 100vw"
+                className="object-cover"
+              />
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-nuit/70 to-transparent px-4 pb-3 pt-10 text-[11px] uppercase tracking-[0.16em] text-ivoire/70">
+                Quartier des quais, vieux Bruges — visuel d&rsquo;ambiance
+              </span>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

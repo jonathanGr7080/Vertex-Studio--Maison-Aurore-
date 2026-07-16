@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: siteMeta.title,
   description: siteMeta.description,
   applicationName: siteMeta.name,
+  authors: [{ name: "Vertex Studio" }],
+  creator: "Vertex Studio",
+  publisher: "Vertex Studio",
   alternates: {
     canonical: "/",
   },

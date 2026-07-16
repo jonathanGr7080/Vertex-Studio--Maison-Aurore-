@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
 const proofs = [
@@ -22,38 +23,38 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="bg-ivoire px-5 py-24 sm:px-8 sm:py-36">
       <div className="mx-auto max-w-[1200px]">
-        <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+        <Reveal className="grid gap-y-8 lg:grid-cols-12 lg:gap-x-14">
+          <div className="lg:col-span-6">
             <SectionHeading index="01" eyebrow="L'expérience" title="Le luxe de la simplicité" />
-            <p className="mt-9 max-w-[44ch] text-lg leading-relaxed text-nuit/75">
+          </div>
+          <div className="lg:col-span-6 lg:pt-14">
+            <p className="max-w-[46ch] text-xl leading-relaxed text-nuit/80">
               Maison Aurore célèbre les produits belges, les saisons et les artisans qui les font.
               Le raffinement vient de la maîtrise, du service et de la retenue — jamais de
               l&rsquo;ostentation.
             </p>
-            <p className="mt-8 max-w-[38ch] font-display text-2xl italic leading-snug text-laiton-fonce">
+            <p className="mt-8 max-w-[30ch] font-display text-[1.7rem] italic leading-snug text-laiton-fonce">
               « La précision en cuisine, la chaleur en salle. »
             </p>
           </div>
+        </Reveal>
 
-          <div className="lg:col-span-6 lg:col-start-7 lg:pt-10">
-            <ul>
-              {proofs.map((proof) => (
-                <li
-                  key={proof.index}
-                  className="grid grid-cols-[3rem_1fr] gap-5 border-t border-nuit/15 py-9 last:border-b"
-                >
-                  <span aria-hidden className="font-display text-xl text-laiton-fonce">
-                    {proof.index}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-2xl font-medium">{proof.title}</h3>
-                    <p className="mt-2.5 max-w-[52ch] leading-relaxed text-nuit/70">{proof.text}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <ul className="mt-20 grid gap-10 border-t border-nuit/15 pt-12 sm:mt-24 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-nuit/15">
+          {proofs.map((proof, i) => (
+            <Reveal
+              as="li"
+              key={proof.index}
+              delayMs={i * 90}
+              className="sm:px-8 sm:first:pl-0 sm:last:pr-0"
+            >
+              <span aria-hidden className="font-display text-lg text-laiton-fonce">
+                {proof.index}
+              </span>
+              <h3 className="mt-3 font-display text-2xl font-medium">{proof.title}</h3>
+              <p className="mt-2.5 max-w-[42ch] leading-relaxed text-nuit/70">{proof.text}</p>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
   );

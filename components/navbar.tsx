@@ -99,7 +99,7 @@ export function Navbar() {
       <div className="mx-auto flex h-20 max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-8">
         <a
           href="#top"
-          className="font-display text-[1.35rem] font-medium tracking-[0.04em] text-ivoire"
+          className="font-display text-[1.35rem] font-medium tracking-[0.04em] text-ivoire transition-colors duration-[var(--dur-micro)] hover:text-laiton"
         >
           Maison&nbsp;Aurore
         </a>
@@ -109,7 +109,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-ivoire/85 transition-colors duration-200 hover:text-laiton"
+              className="text-sm text-ivoire/85 transition-colors duration-[var(--dur-micro)] hover:text-laiton"
             >
               {link.label}
             </a>
@@ -119,7 +119,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 sm:gap-3">
           <a
             href="#reservation"
-            className="flex min-h-11 items-center border border-laiton/70 px-4 py-2 text-[13px] font-medium tracking-[0.04em] text-ivoire transition-colors duration-200 hover:bg-laiton hover:text-nuit sm:px-6 sm:text-sm"
+            className="flex min-h-11 items-center border border-laiton/70 px-4 py-2 text-[13px] font-medium tracking-[0.04em] text-ivoire transition duration-[var(--dur-micro)] ease-[var(--ease-standard)] hover:bg-laiton hover:text-nuit active:translate-y-px sm:px-6 sm:text-sm"
           >
             Réserver
           </a>

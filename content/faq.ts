@@ -12,7 +12,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Proposez-vous une option végétale ?",
     answer:
-      "Le menu Végétal est proposé en permanence, et les menus Découverte et Aurore peuvent être adaptés sur demande.",
+      "Le Menu Végétal est proposé en permanence, et les menus Découverte et Signature peuvent être adaptés sur demande.",
   },
   {
     question: "Les enfants sont-ils les bienvenus ?",
