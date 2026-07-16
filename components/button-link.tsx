@@ -4,7 +4,8 @@ export type ButtonVariant = "primary" | "outline-light" | "outline-dark";
 
 const base =
   "inline-flex min-h-12 items-center justify-center px-8 text-sm font-medium tracking-[0.03em] " +
-  "transition duration-[var(--dur-micro)] ease-[var(--ease-standard)] active:translate-y-px";
+  "transition duration-[var(--dur-micro)] ease-[var(--ease-standard)] active:translate-y-px " +
+  "disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50";
 
 const variants: Record<ButtonVariant, string> = {
   // CTA principal — sur fond clair comme sombre.

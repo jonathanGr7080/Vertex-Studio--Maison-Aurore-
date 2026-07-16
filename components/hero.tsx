@@ -19,7 +19,7 @@ export function Hero() {
         priority
         placeholder="blur"
         sizes="100vw"
-        className="object-cover"
+        className="object-cover motion-safe:animate-[hero-zoom_1.4s_var(--ease-out)_both]"
       />
 
       {/* Double voile : renforce la présence et garantit la lisibilité du texte. */}

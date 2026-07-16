@@ -131,7 +131,7 @@ export function ReservationSection() {
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <label htmlFor={fid("date")} className="text-sm font-medium">
-                      Date <span className="text-nuit/50">(requis)</span>
+                      Date <span className="text-nuit/65">(requis)</span>
                     </label>
                     <input
                       id={fid("date")}
@@ -151,7 +151,7 @@ export function ReservationSection() {
 
                   <div>
                     <label htmlFor={fid("creneau")} className="text-sm font-medium">
-                      Créneau <span className="text-nuit/50">(requis)</span>
+                      Créneau <span className="text-nuit/65">(requis)</span>
                     </label>
                     <select
                       id={fid("creneau")}
@@ -198,7 +198,7 @@ export function ReservationSection() {
 
                   <div>
                     <label htmlFor={fid("nom")} className="text-sm font-medium">
-                      Nom <span className="text-nuit/50">(requis)</span>
+                      Nom <span className="text-nuit/65">(requis)</span>
                     </label>
                     <input
                       id={fid("nom")}
@@ -220,7 +220,7 @@ export function ReservationSection() {
                   <div className="sm:col-span-2">
                     <label htmlFor={fid("allergies")} className="text-sm font-medium">
                       Allergies ou intolérances{" "}
-                      <span className="text-nuit/50">(facultatif)</span>
+                      <span className="text-nuit/65">(facultatif)</span>
                     </label>
                     <input
                       id={fid("allergies")}
@@ -233,7 +233,7 @@ export function ReservationSection() {
 
                   <div className="sm:col-span-2">
                     <label htmlFor={fid("demande")} className="text-sm font-medium">
-                      Demande spéciale <span className="text-nuit/50">(facultatif)</span>
+                      Demande spéciale <span className="text-nuit/65">(facultatif)</span>
                     </label>
                     <textarea
                       id={fid("demande")}

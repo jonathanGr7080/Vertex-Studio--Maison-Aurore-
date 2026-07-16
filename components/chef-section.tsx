@@ -10,7 +10,7 @@ export function ChefSection() {
         <Reveal className="grid gap-y-8 lg:grid-cols-12 lg:gap-x-14">
           <div className="lg:col-span-6">
             <SectionHeading index="03" eyebrow="Le chef" title={chef.name} />
-            <p className="mt-4 text-[12px] uppercase tracking-[0.16em] text-nuit/50">
+            <p className="mt-4 text-[12px] uppercase tracking-[0.16em] text-nuit/65">
               {chef.role} · {chef.demoNotice}
             </p>
           </div>
