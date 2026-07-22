@@ -12,19 +12,20 @@
 | Asset | ✅ PASS *(réserve documentaire mineure)* | 12 photographies sous licence + provenance (`CREDITS.md`). Licences vérifiées au niveau plateforme (Pexels/Unsplash, 2026-07-22) ; auteur documenté depuis le nom de fichier, réserve HTTP 403 non bloquante (attribution non requise). |
 | Design | ✅ PASS | Direction artistique, architecture éditoriale, parcours et contenus finalisés ; cohérence avec les médias P3. |
 | Development | ✅ PASS | Typecheck / lint / build verts ; console sans erreur ; responsive 8 largeurs sans débordement ; a11y de base + SEO conformes (`docs/qa-p4.md`). |
-| Performance | 🟡 CONDITIONNEL | Média optimisé (`next/image`, WebP, `priority`, `sizes`, `blur`), build vert, CLS 0 observé. **Lighthouse à re-mesurer sur la preview Vercel** (non fiable en conteneur headless) avant PASS formel. |
-| Signature / Premium | ✅ PASS *(revue humaine à confirmer)* | Thèse « le calme comme luxe », ≥3 choix spécifiques, signature visible, test de re-skin réussi (`docs/signature-gate.md`). Revue visuelle humaine sur preview restant à confirmer. |
+| Performance | 🟡 CONDITIONNEL | Média optimisé (`next/image`, WebP, `priority`, `sizes`, `blur`), build vert. **Aucune mesure CLS/Web Vitals exécutée en P4. Lighthouse à mesurer sur la preview Vercel** (non fiable en conteneur headless) avant PASS formel. |
+| Signature / Premium | 🟡 OUVERT *(revue statique favorable)* | Revue statique favorable — thèse « le calme comme luxe », ≥3 choix spécifiques, signature visible, test de re-skin réussi (`docs/signature-gate.md`). **Gate encore ouvert : la revue visuelle humaine sur la preview n'a pas eu lieu.** |
 | Delivery | ⏳ EN ATTENTE | Requiert Performance Gate formalisé (Lighthouse preview) + revue humaine Signature + revue de la preview Vercel. Voir checklist ci-dessous. |
 | Capitalisation | ⏳ NON DÉMARRÉ | Étape 14 obligatoire avant clôture (§ Capitalisation). Fiche portfolio, reversement Assets et impact système à traiter en P5 (Notion). |
 
 ## Checklist Delivery Gate (§16)
 
 - [x] Gates Analysis, Asset, Design, Development : verts.
-- [x] Signature Gate : PASS statique (thèse, ≥3 choix, re-skin, cohérence responsive).
+- [x] Signature Gate — revue statique favorable (thèse, ≥3 choix, re-skin, cohérence responsive).
 - [x] Aucun placeholder final, aucun lorem ipsum, aucun visage IA, aucune fausse preuve sociale.
 - [x] Mention de démonstration visible et « aucune donnée transmise » sur l'interaction de réservation.
 - [x] Pack de captures desktop + mobile généré (`docs/captures/`).
-- [ ] Performance Gate formalisé : Lighthouse mesuré sur la preview Vercel (build de prod).
+- [ ] Signature Gate franchi : revue visuelle humaine de la preview Vercel validée par le propriétaire.
+- [ ] Performance Gate formalisé : Lighthouse / Web Vitals mesurés sur la preview Vercel (build de prod).
 - [ ] Revue visuelle humaine de la preview Vercel (Signature + rendu global).
 - [ ] Validation humaine finale et décision de fusion (le propriétaire ; Claude Code ne fusionne pas).
 

@@ -62,7 +62,9 @@ Relevé sur le DOM rendu (build de prod, page d'accueil).
 ## 4. Média & indexation (§8)
 
 - Hero : `priority` + `placeholder="blur"` + `sizes="100vw"` ; tous les visuels via
-  `next/image`, format **WebP**, dimensions explicites, aucun layout shift observé.
+  `next/image`, format **WebP**, dimensions explicites (imports statiques → largeur/hauteur
+  intrinsèques réservant l'espace). Aucune mesure CLS n'a été exécutée en P4 ; la stabilité de
+  mise en page reste à confirmer par Web Vitals / Lighthouse sur la preview Vercel.
 - Poids des 12 WebP livrés (P3) : de 64 K à 532 K. Les deux plus lourds — `hero-salle-aube`
   (484 K) et `gallery/fenetre-lumiere` (532 K) — restent acceptables ; une recompression
   ciblée est possible ultérieurement sans urgence.
@@ -80,8 +82,10 @@ artificiellement sous charge CPU « Other » du conteneur).
 - Le README porte des mesures Lighthouse d'un sprint antérieur (Performance 91 mobile / 99–100
   desktop ; Accessibility 100 ; Best Practices 100 ; SEO 100), prises **avant** le remplacement
   des médias en P3.
-- L'élément LCP est le **titre du hero** (texte), non l'image ; le swap média P3 ne modifie donc
-  pas l'élément LCP. Les nouveaux WebP sont optimisés (`next/image`, `priority`, `sizes`, `blur`).
+- D'après la mesure Lighthouse **antérieure au remplacement des médias (P3)**, l'élément LCP
+  était le **titre du hero** (texte). Cette conclusion **n'a pas été reconfirmée après P3** : le
+  nouveau hero (WebP 484 K) pourrait modifier l'élément LCP, ce qui reste **à vérifier sur la
+  preview Vercel**. Les nouveaux WebP sont optimisés (`next/image`, `priority`, `sizes`, `blur`).
 - **Action recommandée :** mesurer Lighthouse sur la **preview Vercel** (build de prod, hors
   conteneur headless) pour valider formellement le Performance Gate avec les médias P3.
 

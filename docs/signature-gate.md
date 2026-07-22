@@ -73,9 +73,10 @@ complète et non secondaire, un seul H1, hiérarchie de titres cohérente.
 
 ## 6. Statut
 
-**Signature Gate : PASS** au niveau de la revue statique et responsive (thèse claire, ≥3 choix
-spécifiques, signature visible, test de re-skin réussi, cohérence desktop/tablette/mobile).
+**Signature Gate : OUVERT — en attente de validation visuelle humaine.** La **revue statique et
+responsive est favorable** (thèse claire, ≥3 choix spécifiques, signature visible, test de re-skin
+réussi, cohérence desktop/tablette/mobile), mais elle ne suffit pas à franchir le Gate.
 
-**Réserve :** la validation finale du Signature Gate inclut une **revue visuelle humaine** sur la
-preview Vercel (§14, §16) — captures fournies dans `docs/captures/`, revue humaine restant à
-confirmer.
+Le §16 exige une **revue visuelle humaine sur captures et preview** : celle-ci **n'a pas encore eu
+lieu**. Le Gate **reste donc ouvert** tant que le propriétaire n'a pas validé le rendu sur la
+preview Vercel. Captures fournies dans `docs/captures/` pour appuyer cette revue.
