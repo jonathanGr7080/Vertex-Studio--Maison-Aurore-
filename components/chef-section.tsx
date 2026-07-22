@@ -1,4 +1,6 @@
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import Image from "next/image";
+import chefPasse from "@/public/images/chef-passe-nb.webp";
+import chefDressage from "@/public/images/chef-dressage.webp";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { chef } from "@/content/chef";
@@ -20,18 +22,27 @@ export function ChefSection() {
         </Reveal>
 
         <div className="mt-16 grid gap-14 sm:mt-20 lg:grid-cols-12 lg:items-start lg:gap-20">
-          {/* Cluster d'images en chevauchement — placeholders explicites, aucune photo réelle. */}
+          {/* Cluster d'images en chevauchement — photographies d'ambiance sous licence,
+              sans visage identifiable (le chef reste un personnage fictif). */}
           <Reveal className="relative lg:col-span-5">
-            <ImagePlaceholder
-              label="Portrait du chef Julien Moreau"
-              aspect="aspect-[4/5]"
-              className="w-[82%]"
-            />
-            <div className="mt-[-22%] ml-auto w-[58%]">
-              <ImagePlaceholder
-                label="Geste précis, cuisine ouverte"
-                aspect="aspect-square"
-                className="ring-8 ring-ivoire"
+            <div className="relative aspect-[4/5] w-[82%] overflow-hidden">
+              <Image
+                src={chefPasse}
+                alt=""
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 40vw, 82vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative mt-[-22%] ml-auto aspect-square w-[58%] overflow-hidden ring-8 ring-ivoire">
+              <Image
+                src={chefDressage}
+                alt=""
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 28vw, 48vw"
+                className="object-cover"
               />
             </div>
           </Reveal>

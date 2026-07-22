@@ -1,23 +1,23 @@
-import fenetreMatin from "@/public/images/gallery/fenetre-matin.webp";
-import laitonReflet from "@/public/images/gallery/laiton-reflet.webp";
-import linSombre from "@/public/images/gallery/lin-sombre.webp";
-import lumiereAube from "@/public/images/gallery/lumiere-aube.webp";
-import pierreCalme from "@/public/images/gallery/pierre-calme.webp";
-import saugeOmbre from "@/public/images/gallery/sauge-ombre.webp";
+import salleLampe from "@/public/images/gallery/salle-lampe-claustra.webp";
+import linCouverts from "@/public/images/gallery/lin-couverts.webp";
+import refletSombre from "@/public/images/gallery/reflet-sombre.webp";
+import fenetreLumiere from "@/public/images/gallery/fenetre-lumiere.webp";
+import sauge from "@/public/images/gallery/sauge.webp";
+import ailBoisNoir from "@/public/images/gallery/ail-bois-noir.webp";
 import { GalleryGrid } from "@/components/gallery-grid";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import type { LightboxItem } from "@/components/lightbox";
 
-// Ambiances abstraites (aucune personne, aucun plat figuratif) : études de
-// lumière et de matière. La légende sert de nom accessible dans la lightbox.
+// Photographies d'ambiance sous licence (matières, lumière, gestes). La légende
+// sert de nom accessible dans la lightbox.
 const items: LightboxItem[] = [
-  { src: lumiereAube, caption: "Première lumière sur la salle" },
-  { src: linSombre, caption: "Lin sombre, avant le service" },
-  { src: laitonReflet, caption: "Reflet de laiton" },
-  { src: fenetreMatin, caption: "Contre-jour du matin" },
-  { src: saugeOmbre, caption: "Ombre de sauge" },
-  { src: pierreCalme, caption: "Pierre calme" },
+  { src: salleLampe, caption: "Première lumière sur la salle" },
+  { src: linCouverts, caption: "Lin sombre, avant le service" },
+  { src: refletSombre, caption: "Reflet de laiton" },
+  { src: fenetreLumiere, caption: "Contre-jour du matin" },
+  { src: sauge, caption: "Ombre de sauge" },
+  { src: ailBoisNoir, caption: "Ail nouveau, sur le bois" },
 ];
 
 export function GallerySection() {
@@ -36,7 +36,7 @@ export function GallerySection() {
         <GalleryGrid items={items} />
 
         <p className="mt-10 text-xs italic text-ivoire/55">
-          Visuels d&rsquo;ambiance générés pour ce concept de démonstration.
+          Photographies d&rsquo;ambiance sous licence — concept de démonstration.
         </p>
       </div>
     </section>

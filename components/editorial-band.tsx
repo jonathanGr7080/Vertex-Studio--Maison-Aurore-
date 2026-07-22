@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ambianceImage from "@/public/images/gallery/lumiere-aube.webp";
+import ambianceImage from "@/public/images/gallery/reflet-sombre.webp";
 import { Reveal } from "@/components/reveal";
 
 /**
