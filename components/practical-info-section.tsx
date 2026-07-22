@@ -1,5 +1,5 @@
 import Image from "next/image";
-import fenetreMatin from "@/public/images/gallery/fenetre-matin.webp";
+import fenetreMatin from "@/public/images/gallery/fenetre-lumiere.webp";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { practicalInfo } from "@/content/site";

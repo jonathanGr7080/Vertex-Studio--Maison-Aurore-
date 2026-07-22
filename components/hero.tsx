@@ -1,5 +1,5 @@
 import Image from "next/image";
-import heroImage from "@/public/images/hero-aurore.webp";
+import heroImage from "@/public/images/hero-salle-aube.webp";
 import { ButtonLink } from "@/components/button-link";
 
 const signals = ["Cuisine de saison", "Cuisine ouverte", "Cœur de Bruges"];
@@ -8,8 +8,7 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-nuit">
       {/*
-        Visuel d'ambiance « aube sur la salle » généré pour la démonstration
-        (abstrait, sans personne). À remplacer par la photographie finale.
+        Photographie d'ambiance sous licence (salle chaleureuse, sans personne).
         Décoratif : l'information est portée par le H1, d'où alt="".
       */}
       <Image

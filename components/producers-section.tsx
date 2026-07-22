@@ -1,15 +1,15 @@
 import Image, { type StaticImageData } from "next/image";
-import lin from "@/public/images/gallery/lin-sombre.webp";
-import pierreCalme from "@/public/images/gallery/pierre-calme.webp";
-import saugeOmbre from "@/public/images/gallery/sauge-ombre.webp";
+import maraicherImg from "@/public/images/producteur-maraicher.webp";
+import pecheurImg from "@/public/images/producteur-pecheur.webp";
+import fromagerImg from "@/public/images/producteur-fromager.webp";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { producers, producersIntro, producersNote } from "@/content/producers";
 
 const visuals: Record<string, { src: StaticImageData; aspect: string }> = {
-  maraicher: { src: pierreCalme, aspect: "aspect-[5/4]" },
-  pecheur: { src: saugeOmbre, aspect: "aspect-[4/3]" },
-  fromager: { src: lin, aspect: "aspect-[5/4]" },
+  maraicher: { src: maraicherImg, aspect: "aspect-[4/5]" },
+  pecheur: { src: pecheurImg, aspect: "aspect-[4/3]" },
+  fromager: { src: fromagerImg, aspect: "aspect-[5/4]" },
 };
 
 export function ProducersSection() {
