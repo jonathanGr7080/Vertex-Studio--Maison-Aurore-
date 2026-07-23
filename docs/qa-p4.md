@@ -73,32 +73,46 @@ Relevé sur le DOM rendu (build de prod, page d'accueil).
   (`lib/site-config.ts`). Le `canonical` pointant vers `localhost:3000` observé en QA est le
   **fallback sûr documenté**, remplacé par l'URL publique en déploiement — ce n'est pas un défaut.
 
-## 5. Performance / Lighthouse — limite documentée
+## 5. Performance / Lighthouse
 
-Lighthouse **n'a pas été ré-exécuté en P4** : l'outil n'est pas préinstallé dans l'environnement
-et les scores mesurés en conteneur headless sont peu fiables (le TBT desktop remonte
-artificiellement sous charge CPU « Other » du conteneur).
+Lighthouse n'a pas pu être exécuté depuis l'environnement d'exécution (outil non préinstallé,
+egress bloqué vers la preview, scores conteneur headless peu fiables). La mesure a donc été
+réalisée **par le propriétaire** sur le déploiement de production.
 
-- Le README porte des mesures Lighthouse d'un sprint antérieur (Performance 91 mobile / 99–100
-  desktop ; Accessibility 100 ; Best Practices 100 ; SEO 100), prises **avant** le remplacement
-  des médias en P3.
-- D'après la mesure Lighthouse **antérieure au remplacement des médias (P3)**, l'élément LCP
-  était le **titre du hero** (texte). Cette conclusion **n'a pas été reconfirmée après P3** : le
-  nouveau hero (WebP 484 K) pourrait modifier l'élément LCP, ce qui reste **à vérifier sur la
-  preview Vercel**. Les nouveaux WebP sont optimisés (`next/image`, `priority`, `sizes`, `blur`).
-- **Action recommandée :** mesurer Lighthouse sur la **preview Vercel** (build de prod, hors
-  conteneur headless) pour valider formellement le Performance Gate avec les médias P3.
+**Mesure Lighthouse — 2026-07-23, Microsoft Edge, URL `https://maison-aurore-demo.vercel.app/` :**
+
+| Catégorie | Score | Seuil Vertex | Statut |
+|---|---|---|---|
+| Performance | **96** | ≥ 95 | ✅ |
+| Accessibility | **100** | ≥ 98 | ✅ |
+| Best Practices | **100** | = 100 | ✅ |
+| SEO | **100** | = 100 | ✅ |
+
+- **Tous les seuils Vertex sont atteints.**
+- **Profil Lighthouse :** non précisé dans les éléments transmis.
+- **LCP et CLS : non relevés** (non fournis dans le rapport transmis).
+- **Contexte :** `maison-aurore-demo.vercel.app` est le déploiement de production (branche `main`,
+  état post-P3, médias définitifs). Les commits P4 étant strictement documentaires (`docs/`), le
+  rendu de cette URL est identique à celui de la preview de la PR #8 (`ea359d55`).
+- Rappel : le README porte des mesures antérieures au remplacement des médias P3 (Performance 91
+  mobile / 99–100 desktop), désormais complétées par la mesure ci-dessus.
 
 ## 6. Vercel
 
-Les checks Vercel (Preview + déploiement) étaient **verts** sur la PR #7 avant fusion. La
-vérification de l'URL live depuis cet environnement d'exécution reste soumise aux restrictions
-d'egress (accès historiquement 403) ; la revue visuelle de la preview relève de la validation
-humaine (§14).
+Checks Vercel (déploiement) **verts** sur la PR #8 (commit `ea359d55`). L'URL live de la preview
+n'est **pas accessible depuis l'environnement d'exécution** (egress bloqué par la politique de
+l'organisation : 403 au CONNECT) ; la QA visuelle sur la preview a donc été réalisée **par le
+propriétaire**, pas automatiquement.
+
+**Revue visuelle humaine — 2026-07-23, preview confirmée sur `ea359d55`, desktop + mobile.**
+Conformes : chargement et rendu général, navigation et ancres, galerie/lightbox, formulaire de
+démonstration, contrastes, cadrage des 12 photographies, absence d'image cassée / de débordement /
+de chevauchement / de décalage, cohérence visuelle globale, **hero** et **image Open Graph**.
 
 ## 7. Conclusion QA
 
 **Aucun défaut bloquant détecté.** Les contrôles techniques sont verts, le responsive est propre
 sur les 8 largeurs, l'accessibilité de base et le SEO sont conformes, la mention de démonstration
-est présente. Seule réserve : mesure Lighthouse à confirmer sur la preview Vercel (Performance
-Gate conditionnel).
+est présente. La revue visuelle humaine sur la preview et la mesure Lighthouse (Perf 96 / A11y 100 /
+BP 100 / SEO 100, 2026-07-23) sont **effectuées et conformes**. Reste, hors périmètre P4 : la
+décision de fusion du propriétaire, puis la Capitalisation (P5).
